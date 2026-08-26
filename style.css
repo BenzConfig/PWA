@@ -27,17 +27,25 @@ html {
 }
 
 @font-face {
-    font-family: 'Bai Jamjuree';
-    src: url('res/fonts/BaiJamjuree-Bold.ttf') format('truetype');
-    font-weight: 700;
+    font-family: 'Exo 2';
+    src: url('res/fonts/Exo2/Exo2.ttf') format('truetype');
+    font-weight: 100 900;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Bai Jamjuree';
-    src: url('res/fonts/BaiJamjuree-SemiBold.ttf') format('truetype');
+    src: url('res/fonts/Bai_Jamjuree/BaiJamjuree-SemiBold.ttf') format('truetype');
     font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('res/fonts/Bai_Jamjuree/BaiJamjuree-Bold.ttf') format('truetype');
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
@@ -130,9 +138,6 @@ button.calc-button {
     background-color: #191919;
     border: 1px solid #333333;
     border-radius: 8px;
-    font-family: 'Bai Jamjuree', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
     cursor: pointer;
     padding: 12px;
     transition: all 0.2s ease;
@@ -142,7 +147,7 @@ button.calc-button {
 }
 
 button.calc-button span {
-    font-family: 'Bai Jamjuree', sans-serif;
+    font-family: 'Exo 2', sans-serif;
     font-weight: 700;
     font-size: 20px;
 
