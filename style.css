@@ -42,6 +42,14 @@ html {
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('res/fonts/Bai Jamjuree/BaiJamjuree-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     font-family: system-ui, sans-serif;
     padding: 16px;
@@ -264,7 +272,7 @@ button.calc-button:active {
 
 .about-title {
     font-family: 'Bai Jamjuree', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 22px;
     margin-bottom: 8px;
     color: #FFFFFF;
