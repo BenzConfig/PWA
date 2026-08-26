@@ -207,8 +207,8 @@ button.calc-button:active {
     font-weight: 400;
     font-size: 14px;
 
-    margin-top: 16px;
-    padding: 10px 16px;
+    margin-top: 8px;
+    padding: 8px 14px;
 
     background-color: #363535;
     border: 1px solid #535353;
