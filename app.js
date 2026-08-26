@@ -160,8 +160,8 @@ function createSettingsButton(label, calcButton, type) {
 const summerCalcBtn = document.querySelector('#summerDistance').closest('.block').querySelector('button');
 const winterCalcBtn = document.querySelector('#winterDistance').closest('.block').querySelector('button');
 
-createSettingsButton('Настройки', summerCalcBtn, 'summer');
-createSettingsButton('Настройки', winterCalcBtn, 'winter');
+createSettingsButton('Setting', summerCalcBtn, 'summer');
+createSettingsButton('Setting', winterCalcBtn, 'winter');
 
 function openSettingsModal(type) {
     const modal = document.createElement('div');
