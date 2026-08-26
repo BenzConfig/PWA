@@ -221,12 +221,6 @@ button.calc-button:active {
     position: relative;
 }
 
-#btnAbout {
-    width: 100%;
-    margin-top: 8px;
-    font-weight: 400;
-}
-
 .modal-background {
     position: fixed;
     top: 0;
