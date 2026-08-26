@@ -1,11 +1,9 @@
-// Service Worker
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
         .then(() => console.log('SW зарегистрирован'))
         .catch(err => console.log('SW ошибка:', err));
 }
 
-// Индикатор оффлайн
 const offlineIndicator = document.getElementById('offlineIndicator');
 
 function updateOnlineStatus() {
@@ -19,10 +17,8 @@ function updateOnlineStatus() {
 window.addEventListener('online', updateOnlineStatus);
 window.addEventListener('offline', updateOnlineStatus);
 
-// Проверка при загрузке
 updateOnlineStatus();
 
-// Расчёт топлива
 function calculateFuel(distance, cityRate, roadRate, cityProp = 0.3, roadProp = 0.7) {
     const cityDistance = distance * cityProp;
     const roadDistance = distance * roadProp;
@@ -32,7 +28,6 @@ function calculateFuel(distance, cityRate, roadRate, cityProp = 0.3, roadProp = 
     return { totalFuel, cityDistance, roadDistance, cityFuel, roadFuel };
 }
 
-// Эффект печатной машинки
 function typeWriter(element, text, delay = 15) {
     element.innerHTML = '';
     let i = 0;
@@ -48,7 +43,6 @@ function typeWriter(element, text, delay = 15) {
     type();
 }
 
-// Защита от двойного тапа
 let lastTouchEnd = 0;
 document.addEventListener('touchend', function (event) {
     const now = Date.now();
@@ -56,23 +50,19 @@ document.addEventListener('touchend', function (event) {
     lastTouchEnd = now;
 }, false);
 
-// Начальные данные
 const defaultProportions = { city: 30, road: 70 };
 let summerProportions = { ...defaultProportions };
 let winterProportions = { ...defaultProportions };
 
-// Загружаем нормы расхода из localStorage или ставим по умолчанию
 const summerRates = JSON.parse(localStorage.getItem('summerRates')) || { city: 11.5, road: 8.5 };
 const winterRates = JSON.parse(localStorage.getItem('winterRates')) || { city: 13.8, road: 10.2 };
 
-// Валидация числовых полей
 const numericInputs = document.querySelectorAll('input[type="number"]');
 
 function validateNumberInput(event) {
     const input = event.target;
     const value = input.value;
 
-    // Разрешаем только цифры и максимум одну точку
     if (/^\d*\.?\d*$/.test(value) && value !== '.' && value !== '') {
         input.classList.remove('error');
     } else {
@@ -84,14 +74,12 @@ numericInputs.forEach(input => {
     input.addEventListener('input', validateNumberInput);
 });
 
-// Убираем красную обводку при тапе
 document.addEventListener('click', function(event) {
     numericInputs.forEach(input => {
         input.classList.remove('error');
     });
 });
 
-// Расчёт Летний
 function calcSummer() {
     const input = document.getElementById("summerDistance").value;
     const output = document.getElementById("summerResult");
@@ -126,7 +114,6 @@ function calcSummer() {
     typeWriter(output, text, 15);
 }
 
-// Расчёт Зимний
 function calcWinter() {
     const input = document.getElementById("winterDistance").value;
     const output = document.getElementById("winterResult");
@@ -161,7 +148,6 @@ function calcWinter() {
     typeWriter(output, text, 15);
 }
 
-// Создание кнопки Настройки под кнопкой Рассчитать
 function createSettingsButton(label, calcButton, type) {
     const btn = document.createElement('button');
     btn.className = 'settings-button';
@@ -177,7 +163,6 @@ const winterCalcBtn = document.querySelector('#winterDistance').closest('.block'
 createSettingsButton('Настройки', summerCalcBtn, 'summer');
 createSettingsButton('Настройки', winterCalcBtn, 'winter');
 
-// Модальное окно Настройки
 function openSettingsModal(type) {
     const modal = document.createElement('div');
     modal.className = 'modal-background';
@@ -186,7 +171,6 @@ function openSettingsModal(type) {
     container.className = 'modal-container';
     container.style.maxWidth = '320px';
 
-    // Заголовок модалки
     const title = document.createElement('div');
     title.innerText = type === 'summer' ? 'Летний' : 'Зимний';
     title.style.fontFamily = '"Gilroy", sans-serif';
@@ -199,7 +183,6 @@ function openSettingsModal(type) {
     const rates = type === 'summer' ? summerRates : winterRates;
     const proportions = type === 'summer' ? summerProportions : winterProportions;
 
-    // Функции создания меток и полей
     function createLabel(text) {
         const lbl = document.createElement('label');
         lbl.innerText = text;
@@ -252,17 +235,14 @@ function openSettingsModal(type) {
         return wrapper;
     }
 
-    // Добавляем поля норм расхода
     container.appendChild(createLabel('Нормы расхода'));
     container.appendChild(createInputBlock('Город', rates.city, 'cityRate'));
     container.appendChild(createInputBlock('Трасса', rates.road, 'roadRate'));
 
-    // Добавляем поля пропорций
     container.appendChild(createLabel('Пропорции'));
     container.appendChild(createInputBlock('Город', proportions.city, 'city'));
     container.appendChild(createInputBlock('Трасса', proportions.road, 'road'));
 
-    // Кнопки закрытия и сохранения
     const btnClose = document.createElement('button');
     btnClose.innerText = 'Закрыть';
     btnClose.className = 'modal-close';
@@ -274,7 +254,6 @@ function openSettingsModal(type) {
     btnSave.style.marginLeft = '8px';
     btnSave.addEventListener('click', () => {
 
-        // Сохраняем нормы расхода
         rates.city = parseFloat(container.querySelector('input[data-prop="cityRate"]').value) || rates.city;
         rates.road = parseFloat(container.querySelector('input[data-prop="roadRate"]').value) || rates.road;
 
@@ -292,7 +271,6 @@ function openSettingsModal(type) {
             document.getElementById('inputRoadProp').value = winterProportions.road;
         }
 
-        // Закрываем модальное окно
         if (modal && modal.parentNode) modal.parentNode.removeChild(modal);
     });
 
@@ -308,7 +286,6 @@ function openSettingsModal(type) {
     document.body.appendChild(modal);
 }
 
-// Модальное окно О программе
 document.getElementById('btnAbout').addEventListener('click', function() { 
     const modal = document.createElement('div');
     modal.className = 'modal-background';
@@ -316,7 +293,6 @@ document.getElementById('btnAbout').addEventListener('click', function() {
     const container = document.createElement('div');
     container.className = 'modal-container';
 
-    // Левая часть: логотип
     const leftBlock = document.createElement('div');
     leftBlock.className = 'about-left';
     const img = document.createElement('img');
@@ -324,11 +300,9 @@ document.getElementById('btnAbout').addEventListener('click', function() {
     img.className = 'modal-logo';
     leftBlock.appendChild(img);
 
-    // Правая часть: текст
     const rightBlock = document.createElement('div');
     rightBlock.className = 'about-right';
 
-    // Заголовок
     const title = document.createElement('div');
     title.innerText = 'BenzConfig 2.5';
     title.className = 'about-title';
@@ -354,11 +328,10 @@ document.getElementById('btnAbout').addEventListener('click', function() {
 
     // Копирайт
     const copyright = document.createElement('div');
-    copyright.innerText = '© 2025 benzenergy';
+    copyright.innerText = '© 2025 NRG Software';
     copyright.className = 'about-copyright';
     rightBlock.appendChild(copyright);
 
-    // Объединяем левый и правый блок
     const content = document.createElement('div');
     content.className = 'about-content';
     content.appendChild(leftBlock);
@@ -366,7 +339,6 @@ document.getElementById('btnAbout').addEventListener('click', function() {
 
     container.appendChild(content);
 
-    // Кнопка закрытия
     const closeBtn = document.createElement('button');
     closeBtn.innerText = "Закрыть";
     closeBtn.className = 'modal-close';
