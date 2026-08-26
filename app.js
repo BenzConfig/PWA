@@ -310,7 +310,7 @@ document.getElementById('btnAbout').addEventListener('click', function() {
 
     // Лицензия
     const license = document.createElement('div');
-    license.innerHTML = 'Лицензия: <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU GPL v3.0</a>';
+    license.innerHTML = 'Лицензия: <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">www.gnu.org</a>';
     license.className = 'about-text';
     rightBlock.appendChild(license);
 
@@ -322,7 +322,7 @@ document.getElementById('btnAbout').addEventListener('click', function() {
 
     // Исходник
     const source = document.createElement('div');
-    source.innerHTML = 'Исходник: <a href="https://github.com/benzenergy/BenzConfig-PWA" target="_blank">github.com</a>';
+    source.innerHTML = 'Исходник: <a href="https://github.com/benzenergy/BenzConfig-PWA" target="_blank">www.github.com</a>';
     source.className = 'about-text';
     rightBlock.appendChild(source);
 
