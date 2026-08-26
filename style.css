@@ -208,23 +208,27 @@ button.calc-button:active {
 }
 
 #btnAbout {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    padding: 12px;
     margin-top: 8px;
-    margin-left: auto;
 
     border-radius: 8px;
-    border: 1px solid #333333; 
+    border: 1px solid #333333;
     background-color: #252525;
     color: #B2B2B2;
-    font-family: 'Gilroy', sans-serif;
+
+    font-family: 'Bai Jamjuree', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
+
     cursor: pointer;
+    box-sizing: border-box;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition: all 0.2s ease;
 }
 
 .modal-background {
