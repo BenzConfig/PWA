@@ -329,7 +329,6 @@ document.getElementById('btnAbout').addEventListener('click', function() {
     // Копирайт
     const copyright = document.createElement('div');
     copyright.innerText = '© 2025 NRG Software';
-    copyright.innerText = 'All right reserved';
     copyright.className = 'about-copyright';
     rightBlock.appendChild(copyright);
 
