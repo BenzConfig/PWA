@@ -7,6 +7,10 @@ const ASSETS = [
     '/app.js',
     '/res/logo_about.svg',
     '/res/icon.png'
+
+    '/res/fonts/Exo2/Exo2.ttf',
+    '/res/fonts/Bai_Jamjuree/BaiJamjuree-Bold.ttf',
+    '/res/fonts/Bai_Jamjuree/BaiJamjuree-SemiBold.ttf'
 ];
 
 self.addEventListener('install', event => {
