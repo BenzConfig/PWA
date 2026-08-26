@@ -1,7 +1,7 @@
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js')
-        .then(() => console.log('SW зарегистрирован'))
-        .catch(err => console.log('SW ошибка:', err));
+        .then(() => console.log('Service Worker has been registered!'))
+        .catch(err => console.log('Service Worker returned an error! ', err));
 }
 
 const offlineIndicator = document.getElementById('offlineIndicator');
