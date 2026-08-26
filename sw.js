@@ -1,14 +1,20 @@
-const CACHE_NAME = 'benzconfig-cache-v2';
+const CACHE_NAME = 'benzconfig-cache-v3';
 
 const ASSETS = [
     '/',
     '/index.html',
     '/style.css',
     '/app.js',
+    '/manifest.json',
+
+    '/res/logo.png',
     '/res/logo_about.svg',
-    '/res/icon.png'
+    '/res/logo_main.svg',
+    '/res/logo_splash.svg',
+    '/res/logo_tab.svg',
 
     '/res/fonts/Exo2/Exo2.ttf',
+
     '/res/fonts/Bai_Jamjuree/BaiJamjuree-Bold.ttf',
     '/res/fonts/Bai_Jamjuree/BaiJamjuree-SemiBold.ttf'
 ];
