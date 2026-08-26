@@ -51,11 +51,22 @@ document.addEventListener('touchend', function (event) {
 }, false);
 
 const defaultProportions = { city: 30, road: 70 };
-let summerProportions = { ...defaultProportions };
-let winterProportions = { ...defaultProportions };
 
-const summerRates = JSON.parse(localStorage.getItem('summerRates')) || { city: 11.5, road: 8.5 };
-const winterRates = JSON.parse(localStorage.getItem('winterRates')) || { city: 13.8, road: 10.2 };
+const summerProportions =
+    JSON.parse(localStorage.getItem('summerProportions')) ||
+    { ...defaultProportions };
+
+const winterProportions =
+    JSON.parse(localStorage.getItem('winterProportions')) ||
+    { ...defaultProportions };
+
+const summerRates =
+    JSON.parse(localStorage.getItem('summerRates')) ||
+    { city: 11.5, road: 8.5 };
+
+const winterRates =
+    JSON.parse(localStorage.getItem('winterRates')) ||
+    { city: 13.8, road: 10.2 };
 
 const numericInputs = document.querySelectorAll('input[type="number"]');
 
@@ -433,7 +444,16 @@ function openSettingsModal() {
             JSON.stringify(winterRates)
         );
 
-
+        localStorage.setItem(
+            'summerProportions',
+            JSON.stringify(summerProportions)
+        );
+        
+        localStorage.setItem(
+            'winterProportions',
+            JSON.stringify(winterProportions)
+        );
+        
         // Закрываем окно
 
         if (modal && modal.parentNode) {
