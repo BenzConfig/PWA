@@ -314,9 +314,9 @@ document.getElementById('btnAbout').addEventListener('click', function() {
     license.className = 'about-text';
     rightBlock.appendChild(license);
 
-    // Материалы
+    // Сайт
     const materials = document.createElement('div');
-    materials.innerHTML = 'Материалы: <a href="https://www.flaticon.com/free-icon/sign_2737912" target="_blank">flaticon.com</a>';
+    materials.innerHTML = 'Сайт: <a href="https://soloist.ai/nrg" target="_blank">www.soloist.ai/nrg</a>';
     materials.className = 'about-text';
     rightBlock.appendChild(materials);
 
