@@ -34,6 +34,15 @@ html {
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('res/fonts/BaiJamjuree-SemiBold.woff2') format('woff2'),
+         url('res/fonts/BaiJamjuree-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     font-family: system-ui, sans-serif;
     padding: 16px;
@@ -123,8 +132,9 @@ button.calc-button {
     background-color: #191919;
     border: 1px solid #333333;
     border-radius: 8px;
-    font-size: 16px;
+    font-family: 'Bai Jamjuree', sans-serif;
     font-weight: 600;
+    font-size: 20px;
     cursor: pointer;
     padding: 12px;
     transition: all 0.2s ease;
@@ -134,10 +144,14 @@ button.calc-button {
 }
 
 button.calc-button span {
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 600;
     font-size: 20px;
+
     background: linear-gradient(90deg, #6224D7, #FF105E, #EBBE22);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
     display: inline-block;
 }
 
