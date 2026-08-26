@@ -165,7 +165,6 @@ function openSettingsModal() {
 
     const container = document.createElement('div');
     container.className = 'modal-container';
-    container.style.maxWidth = '360px';
 
     // Заголовок
     const title = document.createElement('div');
