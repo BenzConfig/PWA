@@ -148,130 +148,318 @@ function calcWinter() {
     typeWriter(output, text, 15);
 }
 
-const summerCalcBtn = document.querySelector('#summerDistance').closest('.block').querySelector('button');
-const winterCalcBtn = document.querySelector('#winterDistance').closest('.block').querySelector('button');
-
-function openSettingsModal(type) {
+function openSettingsModal() {
     const modal = document.createElement('div');
     modal.className = 'modal-background';
 
     const container = document.createElement('div');
     container.className = 'modal-container';
-    container.style.maxWidth = '320px';
+    container.style.maxWidth = '360px';
 
+    // Заголовок
     const title = document.createElement('div');
-    title.innerText = type === 'summer' ? 'Летний' : 'Зимний';
-
+    title.innerText = 'Настройки';
+    title.style.fontSize = '18px';
     title.style.fontWeight = '400';
-    title.style.fontSize = '16px';
     title.style.marginBottom = '12px';
     title.style.textAlign = 'left';
+
     container.appendChild(title);
 
-    const rates = type === 'summer' ? summerRates : winterRates;
-    const proportions = type === 'summer' ? summerProportions : winterProportions;
 
-    function createLabel(text) {
-        const lbl = document.createElement('label');
-        lbl.innerText = text;
-        lbl.style.display = 'block';
-        lbl.style.marginTop = '8px';
-        lbl.style.fontSize = '12px';
-        lbl.style.color = '#B2B2B2';
-        lbl.style.textAlign = 'left';
-        return lbl;
-    }
+    // --------------------------------------------------
+    // Создание секции режима
+    // --------------------------------------------------
 
-    function createInputBlock(labelText, value, propName) {
-        const wrapper = document.createElement('div');
-        wrapper.style.display = 'flex';
-        wrapper.style.flexDirection = 'column';
-        wrapper.style.alignItems = 'flex-start';
-        wrapper.style.width = '100%';
+    function createModeSection(titleText, rates, proportions) {
 
-        const lbl = createLabel(labelText);
-        wrapper.appendChild(lbl);
+        const section = document.createElement('div');
+        section.style.marginTop = '8px';
 
-        const input = document.createElement('input');
-        input.type = 'number';
-        input.value = value;
-        input.dataset.prop = propName;
-        input.style.width = '100%';
-        input.style.marginTop = '4px';
-        input.style.padding = '8px';
-        input.style.borderRadius = '8px';
-        input.style.border = '1px solid #333333';
-        input.style.backgroundColor = '#1F1F1F';
-        input.style.color = '#B2B2B2';
+        // Название режима
+        const modeTitle = document.createElement('div');
+        modeTitle.innerText = titleText;
+        modeTitle.style.fontSize = '16px';
+        modeTitle.style.fontWeight = '400';
+        modeTitle.style.marginBottom = '4px';
+        modeTitle.style.color = '#FFFFFF';
 
-        input.addEventListener('input', e => {
-            let val = parseInt(e.target.value) || 0;
-            if (val > 100) val = 100;
-            e.target.value = val;
+        section.appendChild(modeTitle);
 
-            if (e.target.dataset.prop === 'city') {
-                const roadInput = wrapper.parentNode.querySelector('input[data-prop="road"]');
-                roadInput.value = 100 - val;
-            } else if (e.target.dataset.prop === 'road') {
-                const cityInput = wrapper.parentNode.querySelector('input[data-prop="city"]');
-                cityInput.value = 100 - val;
-            }
+
+        // Заголовок "Нормы расхода"
+        const ratesTitle = document.createElement('div');
+        ratesTitle.innerText = 'Нормы расхода';
+        ratesTitle.style.fontSize = '12px';
+        ratesTitle.style.color = '#B2B2B2';
+        ratesTitle.style.marginTop = '8px';
+
+        section.appendChild(ratesTitle);
+
+
+        // Создание поля
+        function createInput(labelText, value, type) {
+
+            const wrapper = document.createElement('div');
+
+            wrapper.style.display = 'flex';
+            wrapper.style.flexDirection = 'column';
+            wrapper.style.width = '100%';
+            wrapper.style.marginTop = '4px';
+
+
+            const label = document.createElement('label');
+
+            label.innerText = labelText;
+            label.style.fontSize = '12px';
+            label.style.color = '#B2B2B2';
+            label.style.marginBottom = '3px';
+
+            wrapper.appendChild(label);
+
+
+            const input = document.createElement('input');
+
+            input.type = 'number';
+            input.value = value;
+            input.dataset.type = type;
+
+            input.style.width = '100%';
+            input.style.marginTop = '0';
+            input.style.padding = '8px';
+            input.style.borderRadius = '8px';
+            input.style.border = '1px solid #333333';
+            input.style.backgroundColor = '#1F1F1F';
+            input.style.color = '#B2B2B2';
+            input.style.boxSizing = 'border-box';
+
+            wrapper.appendChild(input);
+
+            return wrapper;
+        }
+
+
+        // Нормы
+        section.appendChild(
+            createInput('Город', rates.city, 'cityRate')
+        );
+
+        section.appendChild(
+            createInput('Трасса', rates.road, 'roadRate')
+        );
+
+
+        // Заголовок "Пропорции"
+        const proportionsTitle = document.createElement('div');
+
+        proportionsTitle.innerText = 'Пропорции';
+        proportionsTitle.style.fontSize = '12px';
+        proportionsTitle.style.color = '#B2B2B2';
+        proportionsTitle.style.marginTop = '8px';
+
+        section.appendChild(proportionsTitle);
+
+
+        // Пропорции
+        const cityPropInput = createInput(
+            'Город',
+            proportions.city,
+            'cityProp'
+        );
+
+        const roadPropInput = createInput(
+            'Трасса',
+            proportions.road,
+            'roadProp'
+        );
+
+
+        section.appendChild(cityPropInput);
+        section.appendChild(roadPropInput);
+
+
+        // Автоматическое соотношение 100%
+        const cityInput = cityPropInput.querySelector('input');
+        const roadInput = roadPropInput.querySelector('input');
+
+
+        cityInput.addEventListener('input', () => {
+
+            let value = parseInt(cityInput.value) || 0;
+
+            if (value > 100) value = 100;
+            if (value < 0) value = 0;
+
+            cityInput.value = value;
+            roadInput.value = 100 - value;
         });
 
-        wrapper.appendChild(input);
-        return wrapper;
+
+        roadInput.addEventListener('input', () => {
+
+            let value = parseInt(roadInput.value) || 0;
+
+            if (value > 100) value = 100;
+            if (value < 0) value = 0;
+
+            roadInput.value = value;
+            cityInput.value = 100 - value;
+        });
+
+
+        return section;
     }
 
-    container.appendChild(createLabel('Нормы расхода'));
-    container.appendChild(createInputBlock('Город', rates.city, 'cityRate'));
-    container.appendChild(createInputBlock('Трасса', rates.road, 'roadRate'));
 
-    container.appendChild(createLabel('Пропорции'));
-    container.appendChild(createInputBlock('Город', proportions.city, 'city'));
-    container.appendChild(createInputBlock('Трасса', proportions.road, 'road'));
+    // --------------------------------------------------
+    // Летний режим
+    // --------------------------------------------------
+
+    const summerSection = createModeSection(
+        'Летний',
+        summerRates,
+        summerProportions
+    );
+
+    container.appendChild(summerSection);
+
+
+    // Разделитель
+    const separator = document.createElement('div');
+
+    separator.style.height = '1px';
+    separator.style.backgroundColor = '#333333';
+    separator.style.margin = '16px 0';
+
+    container.appendChild(separator);
+
+
+    // --------------------------------------------------
+    // Зимний режим
+    // --------------------------------------------------
+
+    const winterSection = createModeSection(
+        'Зимний',
+        winterRates,
+        winterProportions
+    );
+
+    container.appendChild(winterSection);
+
+
+    // --------------------------------------------------
+    // Кнопки
+    // --------------------------------------------------
+
+    const btnWrapper = document.createElement('div');
+
+    btnWrapper.style.display = 'flex';
+    btnWrapper.style.justifyContent = 'flex-end';
+    btnWrapper.style.marginTop = '16px';
+
 
     const btnClose = document.createElement('button');
+
     btnClose.innerText = 'Закрыть';
     btnClose.className = 'modal-close';
-    btnClose.addEventListener('click', () => document.body.removeChild(modal));
+
+    btnClose.addEventListener('click', () => {
+
+        if (modal && modal.parentNode) {
+            modal.parentNode.removeChild(modal);
+        }
+
+    });
+
 
     const btnSave = document.createElement('button');
+
     btnSave.innerText = 'Сохранить';
     btnSave.className = 'modal-close';
     btnSave.style.marginLeft = '8px';
+
+
     btnSave.addEventListener('click', () => {
 
-        rates.city = parseFloat(container.querySelector('input[data-prop="cityRate"]').value) || rates.city;
-        rates.road = parseFloat(container.querySelector('input[data-prop="roadRate"]').value) || rates.road;
+        // -----------------------------
+        // Лето
+        // -----------------------------
 
-        if (type === 'summer') {
-            localStorage.setItem('summerRates', JSON.stringify(rates));
-            summerProportions.city = parseFloat(container.querySelector('input[data-prop="city"]').value) || defaultProportions.city;
-            summerProportions.road = parseFloat(container.querySelector('input[data-prop="road"]').value) || defaultProportions.road;
-            document.getElementById('inputCityProp').value = summerProportions.city;
-            document.getElementById('inputRoadProp').value = summerProportions.road;
-        } else {
-            localStorage.setItem('winterRates', JSON.stringify(rates));
-            winterProportions.city = parseFloat(container.querySelector('input[data-prop="city"]').value) || defaultProportions.city;
-            winterProportions.road = parseFloat(container.querySelector('input[data-prop="road"]').value) || defaultProportions.road;
-            document.getElementById('inputCityProp').value = winterProportions.city;
-            document.getElementById('inputRoadProp').value = winterProportions.road;
+        const summerInputs = summerSection.querySelectorAll('input');
+
+        summerRates.city =
+            parseFloat(summerInputs[0].value) || summerRates.city;
+
+        summerRates.road =
+            parseFloat(summerInputs[1].value) || summerRates.road;
+
+        summerProportions.city =
+            parseInt(summerInputs[2].value) || 0;
+
+        summerProportions.road =
+            parseInt(summerInputs[3].value) || 0;
+
+
+        // -----------------------------
+        // Зима
+        // -----------------------------
+
+        const winterInputs = winterSection.querySelectorAll('input');
+
+        winterRates.city =
+            parseFloat(winterInputs[0].value) || winterRates.city;
+
+        winterRates.road =
+            parseFloat(winterInputs[1].value) || winterRates.road;
+
+        winterProportions.city =
+            parseInt(winterInputs[2].value) || 0;
+
+        winterProportions.road =
+            parseInt(winterInputs[3].value) || 0;
+
+
+        // -----------------------------
+        // Сохранение
+        // -----------------------------
+
+        localStorage.setItem(
+            'summerRates',
+            JSON.stringify(summerRates)
+        );
+
+        localStorage.setItem(
+            'winterRates',
+            JSON.stringify(winterRates)
+        );
+
+
+        // Закрываем окно
+
+        if (modal && modal.parentNode) {
+            modal.parentNode.removeChild(modal);
         }
 
-        if (modal && modal.parentNode) modal.parentNode.removeChild(modal);
     });
 
-    const btnWrapper = document.createElement('div');
-    btnWrapper.style.display = 'flex';
-    btnWrapper.style.justifyContent = 'flex-end';
-    btnWrapper.style.marginTop = '12px';
+
     btnWrapper.appendChild(btnClose);
     btnWrapper.appendChild(btnSave);
 
     container.appendChild(btnWrapper);
+
+
+    // --------------------------------------------------
+    // Показываем окно
+    // --------------------------------------------------
+
     modal.appendChild(container);
     document.body.appendChild(modal);
 }
+
+document.getElementById('btnSettings').addEventListener('click', () => {
+    openSettingsModal();
+});
 
 document.getElementById('btnAbout').addEventListener('click', function() { 
     const modal = document.createElement('div');
@@ -334,8 +522,4 @@ document.getElementById('btnAbout').addEventListener('click', function() {
 
     modal.appendChild(container);
     document.body.appendChild(modal);
-
-    document.getElementById('btnSettings').addEventListener('click', () => {
-    openSettingsModal();
-
 });
