@@ -172,7 +172,7 @@ function openSettingsModal() {
     title.style.fontSize = '17px';
     title.style.fontWeight = '400';
     title.style.marginBottom = '8px';
-    title.style.textAlign = 'left';
+    title.style.textAlign = 'center';
 
     container.appendChild(title);
 
@@ -193,7 +193,8 @@ function openSettingsModal() {
         modeTitle.style.fontWeight = '400';
         modeTitle.style.marginBottom = '2px';
         modeTitle.style.color = '#FFFFFF';
-
+        modeTitle.style.textAlign = 'center';
+        
         section.appendChild(modeTitle);
 
 
@@ -203,7 +204,8 @@ function openSettingsModal() {
         ratesTitle.style.fontSize = '12px';
         ratesTitle.style.color = '#B2B2B2';
         ratesTitle.style.marginTop = '4px';
-
+        ratesTitle.style.textAlign = 'center';
+        
         section.appendChild(ratesTitle);
 
 
@@ -266,7 +268,8 @@ function openSettingsModal() {
         proportionsTitle.style.fontSize = '12px';
         proportionsTitle.style.color = '#B2B2B2';
         proportionsTitle.style.marginTop = '4px';
-
+        proportionsTitle.style.textAlign = 'center';
+        
         section.appendChild(proportionsTitle);
 
 
