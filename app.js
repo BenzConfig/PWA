@@ -507,19 +507,19 @@ document.getElementById('btnAbout').addEventListener('click', function() {
 
     // Лицензия
     const license = document.createElement('div');
-    license.innerHTML = 'Лицензия: <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">www.gnu.org</a>';
+    license.innerHTML = 'Лицензия <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">www.gnu.org</a>';
     license.className = 'about-text';
     rightBlock.appendChild(license);
 
     // Сайт
     const materials = document.createElement('div');
-    materials.innerHTML = 'Сайт: <a href="https://soloist.ai/nrg" target="_blank">www.soloist.ai/nrg</a>';
+    materials.innerHTML = 'Сайт <a href="https://soloist.ai/nrg" target="_blank">www.soloist.ai/nrg</a>';
     materials.className = 'about-text';
     rightBlock.appendChild(materials);
 
     // Исходник
     const source = document.createElement('div');
-    source.innerHTML = 'Исходник: <a href="https://github.com/benzenergy/BenzConfig-PWA" target="_blank">www.github.com</a>';
+    source.innerHTML = 'Исходник <a href="https://github.com/benzenergy/BenzConfig-PWA" target="_blank">www.github.com</a>';
     source.className = 'about-text';
     rightBlock.appendChild(source);
 
