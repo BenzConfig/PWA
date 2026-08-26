@@ -148,20 +148,8 @@ function calcWinter() {
     typeWriter(output, text, 15);
 }
 
-function createSettingsButton(label, calcButton, type) {
-    const btn = document.createElement('button');
-    btn.className = 'settings-button';
-    btn.innerText = label;
-    btn.style.marginTop = '8px';
-    btn.addEventListener('click', () => openSettingsModal(type));
-    calcButton.insertAdjacentElement('afterend', btn);
-}
-
 const summerCalcBtn = document.querySelector('#summerDistance').closest('.block').querySelector('button');
 const winterCalcBtn = document.querySelector('#winterDistance').closest('.block').querySelector('button');
-
-createSettingsButton('Настройки', summerCalcBtn, 'summer');
-createSettingsButton('Настройки', winterCalcBtn, 'winter');
 
 function openSettingsModal(type) {
     const modal = document.createElement('div');
