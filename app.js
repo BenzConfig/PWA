@@ -334,4 +334,8 @@ document.getElementById('btnAbout').addEventListener('click', function() {
 
     modal.appendChild(container);
     document.body.appendChild(modal);
+
+    document.getElementById('btnSettings').addEventListener('click', () => {
+    openSettingsModal();
+
 });
