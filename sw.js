@@ -43,15 +43,26 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
     event.respondWith(
-        fetch(event.request)
-            .then(response => {
-                return caches.open(CACHE_NAME).then(cache => {
-                    cache.put(event.request, response.clone());
+        caches.match(event.request).then(cachedResponse => {
+
+            if (cachedResponse) {
+                return cachedResponse;
+            }
+
+            return fetch(event.request).then(response => {
+
+                if (!response || response.status !== 200) {
                     return response;
+                }
+
+                const responseClone = response.clone();
+
+                caches.open(CACHE_NAME).then(cache => {
+                    cache.put(event.request, responseClone);
                 });
-            })
-            .catch(() => {
-                return caches.match(event.request);
+
+                return response;
             });
+        })
     );
 });
