@@ -169,9 +169,9 @@ function openSettingsModal() {
     // Заголовок
     const title = document.createElement('div');
     title.innerText = 'Настройки';
-    title.style.fontSize = '18px';
+    title.style.fontSize = '17px';
     title.style.fontWeight = '400';
-    title.style.marginBottom = '12px';
+    title.style.marginBottom = '8px';
     title.style.textAlign = 'left';
 
     container.appendChild(title);
@@ -184,14 +184,14 @@ function openSettingsModal() {
     function createModeSection(titleText, rates, proportions) {
 
         const section = document.createElement('div');
-        section.style.marginTop = '8px';
+        section.style.marginTop = '4px';
 
         // Название режима
         const modeTitle = document.createElement('div');
         modeTitle.innerText = titleText;
-        modeTitle.style.fontSize = '16px';
+        modeTitle.style.fontSize = '15px';
         modeTitle.style.fontWeight = '400';
-        modeTitle.style.marginBottom = '4px';
+        modeTitle.style.marginBottom = '2px';
         modeTitle.style.color = '#FFFFFF';
 
         section.appendChild(modeTitle);
@@ -202,7 +202,7 @@ function openSettingsModal() {
         ratesTitle.innerText = 'Нормы расхода';
         ratesTitle.style.fontSize = '12px';
         ratesTitle.style.color = '#B2B2B2';
-        ratesTitle.style.marginTop = '8px';
+        ratesTitle.style.marginTop = '4px';
 
         section.appendChild(ratesTitle);
 
@@ -215,7 +215,7 @@ function openSettingsModal() {
             wrapper.style.display = 'flex';
             wrapper.style.flexDirection = 'column';
             wrapper.style.width = '100%';
-            wrapper.style.marginTop = '4px';
+            wrapper.style.marginTop = '2px';
 
 
             const label = document.createElement('label');
@@ -236,7 +236,7 @@ function openSettingsModal() {
 
             input.style.width = '100%';
             input.style.marginTop = '0';
-            input.style.padding = '8px';
+            input.style.padding = '6px 8px';
             input.style.borderRadius = '8px';
             input.style.border = '1px solid #333333';
             input.style.backgroundColor = '#1F1F1F';
@@ -265,7 +265,7 @@ function openSettingsModal() {
         proportionsTitle.innerText = 'Пропорции';
         proportionsTitle.style.fontSize = '12px';
         proportionsTitle.style.color = '#B2B2B2';
-        proportionsTitle.style.marginTop = '8px';
+        proportionsTitle.style.marginTop = '4px';
 
         section.appendChild(proportionsTitle);
 
@@ -339,7 +339,7 @@ function openSettingsModal() {
 
     separator.style.height = '1px';
     separator.style.backgroundColor = '#333333';
-    separator.style.margin = '16px 0';
+    separator.style.margin = '10px 0';
 
     container.appendChild(separator);
 
@@ -365,7 +365,7 @@ function openSettingsModal() {
 
     btnWrapper.style.display = 'flex';
     btnWrapper.style.justifyContent = 'flex-end';
-    btnWrapper.style.marginTop = '16px';
+    btnWrapper.style.marginTop = '8px';
 
 
     const btnClose = document.createElement('button');
