@@ -9,15 +9,13 @@ const ASSETS = [
     '/res/icon.png'
 ];
 
-// Установка
 self.addEventListener('install', event => {
-    self.skipWaiting(); // сразу активировать новый SW
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
     );
 });
 
-// Активация и очистка старых кэшей
 self.addEventListener('activate', event => {
     event.waitUntil(
         caches.keys().then(keys =>
@@ -33,7 +31,6 @@ self.addEventListener('activate', event => {
     self.clients.claim();
 });
 
-// Fetch: сначала кэш, потом сеть
 self.addEventListener('fetch', event => {
     event.respondWith(
         fetch(event.request)
