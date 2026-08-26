@@ -15,20 +15,41 @@
 <div id="splash-screen"> <img src="res/logo_splash.svg" alt="BenzConfig" class="splash-icon"> </div>
 <div class="app-header"> <img src="res/logo_main.svg" alt="BenzConfig" class="app-icon"> </div>
 
-<div class="block"> <h3 class="summer-label">Летний пробег</h3>
-    <input id="summerDistance" type="number" inputmode="decimal" placeholder="Введите данные">
-    <button class="calc-button" onclick="calcSummer()"> <span>Рассчитать</span></button>
+<div class="block">
+    <h3 class="summer-label">Летний пробег</h3>
+    <input id="summerDistance"
+           type="number"
+           inputmode="decimal"
+           placeholder="Введите данные">
+    
+    <button class="calc-button"
+            onclick="calcSummer()"> 
+        <span>Рассчитать</span>
+    </button>
+    
     <div id="summerResult" class="output-box"> </div>
 </div>
 
 <div class="block">
     <h3 class="winter-label">Зимний пробег</h3>
-    <input id="winterDistance" type="number" inputmode="decimal" placeholder="Введите данные">
-    <button class="calc-button" onclick="calcWinter()"> <span>Рассчитать</span> </button>
+
+    <input id="winterDistance"
+           type="number"
+           inputmode="decimal"
+           placeholder="Введите данные">
+
+    <button class="calc-button" onclick="calcWinter()">
+        <span>Рассчитать</span>
+    </button>
+
     <div id="winterResult" class="output-box"></div>
+</div>
+
+<div class="bottom-buttons">
+    <button id="btnSettings">Настройки</button>
     <button id="btnAbout">Справка</button>
 </div>
-    
+
 <div id="offlineIndicator">Нет подключения к интернету</div>
 
 <script src="app.js" defer></script>
