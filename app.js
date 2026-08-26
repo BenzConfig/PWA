@@ -160,8 +160,8 @@ function createSettingsButton(label, calcButton, type) {
 const summerCalcBtn = document.querySelector('#summerDistance').closest('.block').querySelector('button');
 const winterCalcBtn = document.querySelector('#winterDistance').closest('.block').querySelector('button');
 
-createSettingsButton('Setting', summerCalcBtn, 'summer');
-createSettingsButton('Setting', winterCalcBtn, 'winter');
+createSettingsButton('Settings', summerCalcBtn, 'summer');
+createSettingsButton('Settings', winterCalcBtn, 'winter');
 
 function openSettingsModal(type) {
     const modal = document.createElement('div');
@@ -173,7 +173,7 @@ function openSettingsModal(type) {
 
     const title = document.createElement('div');
     title.innerText = type === 'summer' ? 'Летний' : 'Зимний';
-    title.style.fontFamily = '"Gilroy", sans-serif';
+
     title.style.fontWeight = '400';
     title.style.fontSize = '16px';
     title.style.marginBottom = '12px';
@@ -188,7 +188,6 @@ function openSettingsModal(type) {
         lbl.innerText = text;
         lbl.style.display = 'block';
         lbl.style.marginTop = '8px';
-        lbl.style.fontFamily = 'Gilroy, sans-serif';
         lbl.style.fontSize = '12px';
         lbl.style.color = '#B2B2B2';
         lbl.style.textAlign = 'left';
@@ -216,7 +215,7 @@ function openSettingsModal(type) {
         input.style.border = '1px solid #333333';
         input.style.backgroundColor = '#1F1F1F';
         input.style.color = '#B2B2B2';
-        input.style.fontFamily = 'Gilroy, sans-serif';
+
         input.addEventListener('input', e => {
             let val = parseInt(e.target.value) || 0;
             if (val > 100) val = 100;
