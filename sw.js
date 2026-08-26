@@ -1,22 +1,22 @@
-const CACHE_NAME = 'benzconfig-cache-v3';
+const CACHE_NAME = 'benzconfig-cache-v4';
 
 const ASSETS = [
-    '/',
-    '/index.html',
-    '/style.css',
-    '/app.js',
-    '/manifest.json',
+    './',
+    './index.html',
+    './style.css',
+    './app.js',
+    './manifest.json',
 
-    '/res/logo.png',
-    '/res/logo_about.svg',
-    '/res/logo_main.svg',
-    '/res/logo_splash.svg',
-    '/res/logo_tab.svg',
+    './res/logo.png',
+    './res/logo_about.svg',
+    './res/logo_main.svg',
+    './res/logo_splash.svg',
+    './res/logo_tab.svg',
 
-    '/res/fonts/Exo2/Exo2.ttf',
+    './res/fonts/Exo2/Exo2.ttf',
 
-    '/res/fonts/Bai_Jamjuree/BaiJamjuree-Bold.ttf',
-    '/res/fonts/Bai_Jamjuree/BaiJamjuree-SemiBold.ttf'
+    './res/fonts/Bai_Jamjuree/BaiJamjuree-Bold.ttf',
+    './res/fonts/Bai_Jamjuree/BaiJamjuree-SemiBold.ttf'
 ];
 
 self.addEventListener('install', event => {
