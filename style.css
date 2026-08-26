@@ -36,8 +36,7 @@ html {
 
 @font-face {
     font-family: 'Bai Jamjuree';
-    src: url('res/fonts/BaiJamjuree-SemiBold.woff2') format('woff2'),
-         url('res/fonts/BaiJamjuree-SemiBold.woff') format('woff');
+    src: url('res/fonts/Bai Jamjuree/BaiJamjuree-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
