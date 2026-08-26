@@ -79,6 +79,23 @@ html, body {
     margin-bottom: 4px;
 }
 
+.bottom-buttons {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.bottom-buttons button {
+    flex: 1;
+    width: auto;
+    margin-top: 0;
+
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
 input {
     width: 100%;
     padding: 12px;
