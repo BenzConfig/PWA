@@ -168,7 +168,7 @@ function openSettingsModal() {
 
     // Заголовок
     const title = document.createElement('div');
-    title.innerText = 'Настройки';
+    //title.innerText = 'Настройки';
     title.style.fontSize = '17px';
     title.style.fontWeight = '400';
     title.style.marginBottom = '8px';
