@@ -513,7 +513,7 @@ document.getElementById('btnAbout').addEventListener('click', function() {
 
     // Сайт
     const materials = document.createElement('div');
-    materials.innerHTML = 'Сайт <a href="https://soloist.ai/nrg" target="_blank">www.soloist.ai/nrg</a>';
+    materials.innerHTML = 'Материал <a href="https://soloist.ai/nrg" target="_blank">www.soloist.ai/nrg</a>';
     materials.className = 'about-text';
     rightBlock.appendChild(materials);
 
