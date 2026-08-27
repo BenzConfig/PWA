@@ -456,24 +456,16 @@ function openSettingsModal() {
             JSON.stringify(winterProportions)
         );
         
-        // Закрываем окно
-
         if (modal && modal.parentNode) {
             modal.parentNode.removeChild(modal);
         }
 
     });
 
-
     btnWrapper.appendChild(btnClose);
     btnWrapper.appendChild(btnSave);
 
     container.appendChild(btnWrapper);
-
-
-    // --------------------------------------------------
-    // Показываем окно
-    // --------------------------------------------------
 
     modal.appendChild(container);
     document.body.appendChild(modal);
