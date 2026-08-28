@@ -499,7 +499,7 @@ document.getElementById('btnAbout').addEventListener('click', function() {
 
     // Лицензия
     const license = document.createElement('div');
-    license.innerHTML = 'Лицензия <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">www.gnu.org</a>';
+    license.innerHTML = 'Лицензия <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU GPL V3</a>';
     license.className = 'about-text';
     rightBlock.appendChild(license);
 
