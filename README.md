@@ -4,4 +4,4 @@
 ##
 ![GPL](github/gplv3.png)
 
-Резервная ссылка app.benzconfig.workers.dev
+Резервная ссылка https://app.benzconfig.workers.dev
