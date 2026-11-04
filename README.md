@@ -2,4 +2,4 @@
 ##
 ![Background](github/gr-1.png)
 ##
-![MIT License](github/MIT-License.png)
+<img src="github/MIT-License.png" alt="MIT License" width="200">
