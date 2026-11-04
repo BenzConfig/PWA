@@ -2,4 +2,4 @@
 ##
 ![ground](github/gr-1.png)
 ##
-![GPL](github/gplv3.png)
+![GPL](github/MIT.svg)
