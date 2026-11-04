@@ -168,18 +168,12 @@ function openSettingsModal() {
 
     // Заголовок
     const title = document.createElement('div');
-    //title.innerText = 'Настройки';
     title.style.fontSize = '17px';
     title.style.fontWeight = '400';
     title.style.marginBottom = '8px';
     title.style.textAlign = 'center';
 
     container.appendChild(title);
-
-
-    // --------------------------------------------------
-    // Создание секции режима
-    // --------------------------------------------------
 
     function createModeSection(titleText, rates, proportions) {
 
@@ -197,7 +191,6 @@ function openSettingsModal() {
         
         section.appendChild(modeTitle);
 
-
         // Заголовок "Нормы расхода"
         const ratesTitle = document.createElement('div');
         ratesTitle.innerText = 'Нормы расхода';
@@ -208,20 +201,16 @@ function openSettingsModal() {
         
         section.appendChild(ratesTitle);
 
-
         // Создание поля
         function createInput(labelText, value, type) {
 
             const wrapper = document.createElement('div');
-
             wrapper.style.display = 'flex';
             wrapper.style.flexDirection = 'column';
             wrapper.style.width = '100%';
             wrapper.style.marginTop = '2px';
 
-
             const label = document.createElement('label');
-
             label.innerText = labelText;
             label.style.fontSize = '12px';
             label.style.color = '#B2B2B2';
@@ -229,9 +218,7 @@ function openSettingsModal() {
 
             wrapper.appendChild(label);
 
-
             const input = document.createElement('input');
-
             input.type = 'number';
             input.value = value;
             input.dataset.type = type;
@@ -250,7 +237,6 @@ function openSettingsModal() {
             return wrapper;
         }
 
-
         // Нормы
         section.appendChild(
             createInput('Город', rates.city, 'cityRate')
@@ -259,7 +245,6 @@ function openSettingsModal() {
         section.appendChild(
             createInput('Трасса', rates.road, 'roadRate')
         );
-
 
         // Заголовок "Пропорции"
         const proportionsTitle = document.createElement('div');
@@ -271,7 +256,6 @@ function openSettingsModal() {
         proportionsTitle.style.textAlign = 'center';
         
         section.appendChild(proportionsTitle);
-
 
         // Пропорции
         const cityPropInput = createInput(
@@ -290,7 +274,6 @@ function openSettingsModal() {
         section.appendChild(cityPropInput);
         section.appendChild(roadPropInput);
 
-
         // Автоматическое соотношение 100%
         const cityInput = cityPropInput.querySelector('input');
         const roadInput = roadPropInput.querySelector('input');
@@ -307,7 +290,6 @@ function openSettingsModal() {
             roadInput.value = 100 - value;
         });
 
-
         roadInput.addEventListener('input', () => {
 
             let value = parseInt(roadInput.value) || 0;
@@ -322,11 +304,6 @@ function openSettingsModal() {
 
         return section;
     }
-
-
-    // --------------------------------------------------
-    // Летний режим
-    // --------------------------------------------------
 
     const summerSection = createModeSection(
         'Летний',
@@ -346,11 +323,6 @@ function openSettingsModal() {
 
     container.appendChild(separator);
 
-
-    // --------------------------------------------------
-    // Зимний режим
-    // --------------------------------------------------
-
     const winterSection = createModeSection(
         'Зимний',
         winterRates,
@@ -359,17 +331,11 @@ function openSettingsModal() {
 
     container.appendChild(winterSection);
 
-
-    // --------------------------------------------------
-    // Кнопки
-    // --------------------------------------------------
-
     const btnWrapper = document.createElement('div');
 
     btnWrapper.style.display = 'flex';
     btnWrapper.style.justifyContent = 'flex-end';
     btnWrapper.style.marginTop = '8px';
-
 
     const btnClose = document.createElement('button');
 
@@ -384,19 +350,13 @@ function openSettingsModal() {
 
     });
 
-
     const btnSave = document.createElement('button');
 
     btnSave.innerText = 'Сохранить';
     btnSave.className = 'modal-close';
     btnSave.style.marginLeft = '8px';
 
-
     btnSave.addEventListener('click', () => {
-
-        // -----------------------------
-        // Лето
-        // -----------------------------
 
         const summerInputs = summerSection.querySelectorAll('input');
 
@@ -412,11 +372,6 @@ function openSettingsModal() {
         summerProportions.road =
             parseInt(summerInputs[3].value) || 0;
 
-
-        // -----------------------------
-        // Зима
-        // -----------------------------
-
         const winterInputs = winterSection.querySelectorAll('input');
 
         winterRates.city =
@@ -430,11 +385,6 @@ function openSettingsModal() {
 
         winterProportions.road =
             parseInt(winterInputs[3].value) || 0;
-
-
-        // -----------------------------
-        // Сохранение
-        // -----------------------------
 
         localStorage.setItem(
             'summerRates',
