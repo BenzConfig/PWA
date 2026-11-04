@@ -435,7 +435,7 @@ document.getElementById('btnAbout').addEventListener('click', function() {
     const leftBlock = document.createElement('div');
     leftBlock.className = 'about-left';
     const img = document.createElement('img');
-    img.src = 'res/logo_C.svg';
+    img.src = 'res/logo C.svg';
     img.className = 'modal-logo';
     leftBlock.appendChild(img);
 
