@@ -1,3 +1,6 @@
+// Copyright (c) 2025 NRG'S. Licensed under the MIT License.
+// See LICENSE file in the project root for full license information.
+
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js')
         .then(() => console.log('Service Worker has been registered!'))
