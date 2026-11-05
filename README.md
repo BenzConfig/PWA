@@ -4,9 +4,8 @@
 
 
 
-<a href="ССЫЛКА_НА_ВАШЕ_ПРИЛОЖЕНИЕ">
-  <img src="https://shields.io" alt="LINK" width="150">
-</a>
+[![JavaScript](https://shields.io)](ВАША_ССЫЛКА)
+
 
 
 
