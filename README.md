@@ -2,4 +2,4 @@
 ##
 ![PNG](readme/PNG.png)
 ##
-<img src="readme/MIT.png" alt="MIT License" width="100">
+<img src="readme/MIT.png" alt="MIT License" width="50">
