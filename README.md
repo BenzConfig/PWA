@@ -4,7 +4,8 @@
 
 
 
-[![JavaScript](https://shields.io)](https://benzconfig.github.io/PWA/)
+<a href="https://benzconfig.github.io/PWA/"><img src="https://shields.io" alt="JavaScript" width="150"></a>
+
 
 
 
