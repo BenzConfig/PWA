@@ -1,5 +1,5 @@
-[![GitHub Page](https://img.shields.io/badge/Основная-ссылка-yellow)](https://benzconfig.github.io/PWA/) <br>
+[![LINK](https://img.shields.io/badge/Основная-ссылка-yellow)](https://benzconfig.github.io/PWA/) <br>
 ##
-![Background](github/gr-1.png)
+![PNG](readme/PNG.png)
 ##
-<img src="github/MIT-License.png" alt="MIT License" width="100">
+<img src="readme/MIT.png" alt="MIT License" width="100">
