@@ -7,11 +7,11 @@ const ASSETS = [
     './app.js',
     './manifest.json',
 
-    './res/logo.png',
-    './res/logo_about.svg',
+    './res/images/logo_C.png',
+    './res/images/logo_C.svg',
+    './res/images/logo_C.ico',
     './res/logo_main.svg',
     './res/logo_splash.svg',
-    './res/logo_tab.svg',
 
     './res/fonts/Exo2/Exo2.ttf',
 
