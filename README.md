@@ -1,7 +1,5 @@
-[![LINK](https://img.shields.io/badge/Основная-ссылка-yellow)](https://benzconfig.github.io/PWA/) <br>
+[![LINK](https://img.shields.io/badge/Основная-ссылка-yellow)](https://benzconfig.github.io/PWA/)
 
-<img src="readme/PNG.png" alt="MIT License" width="150">
+<img src="readme/PNG.png" alt="MIT License" width="300">
 
-![PNG](readme/PNG.png)
-##
 <img src="readme/MIT.png" alt="MIT License" width="50">
